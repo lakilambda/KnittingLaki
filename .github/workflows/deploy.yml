@@ -1,9 +1,18 @@
 name: Deploy web to Cloudflare Pages
 
+# main  -> production deployment
+# dev   -> preview deployment (dev.knittinglaki.pages.dev)
+# PRs   -> tests and build only, no deployment
 on:
   push:
-    branches: [main]
+    branches: [main, dev]
+  pull_request:
+    branches: [main, dev]
   workflow_dispatch:
+
+concurrency:
+  group: deploy-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   deploy:
@@ -29,8 +38,9 @@ jobs:
       - run: flutter build web --release
 
       - name: Deploy to Cloudflare Pages
+        if: github.event_name != 'pull_request'
         uses: cloudflare/wrangler-action@v3
         with:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
-          command: pages deploy build/web --project-name=knittinglaki
+          command: pages deploy build/web --project-name=knittinglaki --branch=${{ github.ref_name }}
