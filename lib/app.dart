@@ -25,15 +25,15 @@ final _router = GoRouter(
   ],
 );
 
-class KnittinglakiApp extends ConsumerWidget {
-  const KnittinglakiApp({super.key});
+class KnittingLakiApp extends ConsumerWidget {
+  const KnittingLakiApp({super.key});
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final themeMode = ref.watch(themeModeProvider).value ?? ThemeMode.system;
 
     return MaterialApp.router(
-      title: 'Knittinglaki',
+      title: 'KnittingLaki',
       debugShowCheckedModeBanner: false,
       theme: buildTheme(Brightness.light),
       darkTheme: buildTheme(Brightness.dark),

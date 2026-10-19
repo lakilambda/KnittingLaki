@@ -30,7 +30,7 @@ void main() {
   );
 
   runZonedGuarded(
-    () => runApp(const ProviderScope(child: KnittinglakiApp())),
+    () => runApp(const ProviderScope(child: KnittingLakiApp())),
     AppErrors.report,
   );
 }

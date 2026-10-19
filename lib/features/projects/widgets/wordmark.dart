@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../core/app_colors.dart';
 import '../../../core/dashed_line.dart';
 
-/// The "Knittinglaki" app title: logo tile + two-line wordmark with a dashed
+/// The "KnittingLaki" app title: logo tile + two-line wordmark with a dashed
 /// yarn thread ending in a knot. Shown only in the project list's AppBar.
 class Wordmark extends StatelessWidget {
   const Wordmark({super.key});
@@ -44,7 +44,7 @@ class Wordmark extends StatelessWidget {
                     ),
                   ),
                   TextSpan(
-                    text: 'laki',
+                    text: 'Laki',
                     style: TextStyle(
                       fontFamily: 'DM Sans',
                       fontSize: 26,

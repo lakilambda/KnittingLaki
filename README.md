@@ -1,4 +1,4 @@
-# Knittinglaki
+# KnittingLaki
 
 Rundenzähler fürs Stricken und Häkeln.
 
